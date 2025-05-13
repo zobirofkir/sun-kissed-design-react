@@ -24,6 +24,7 @@ const ProductDetail = () => {
     phoneNumber: "",
     orderQuantity: 1
   });
+  const [totalPrice, setTotalPrice] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -44,6 +45,13 @@ const ProductDetail = () => {
       }
     }, 500); 
   }, [id]);
+  
+  // Update total price when product or quantity changes
+  useEffect(() => {
+    if (product) {
+      setTotalPrice(calculateTotalPrice(formData.orderQuantity));
+    }
+  }, [product, formData.orderQuantity]);
 
   const handleQuantityChange = (change: number) => {
     setQuantity(prev => Math.max(1, prev + change));
@@ -63,6 +71,18 @@ const ProductDetail = () => {
     console.log("Order submitted:", { ...formData, product: product?.name });
     alert("Order placed successfully!");
     setIsModalOpen(false);
+  };
+  
+  // Calculate total price based on quantity
+  const calculateTotalPrice = (qty: number) => {
+    if (!product) return "";
+    // Extract the numeric value from the price string (assuming format like "$29.99")
+    const priceValue = parseFloat(product.price.replace(/[^0-9.]/g, ''));
+    const total = priceValue * qty;
+    
+    // Format the total with the same currency symbol as the original price
+    const currencySymbol = product.price.match(/[^0-9.]/g)?.[0] || "$";
+    return `${currencySymbol}${total.toFixed(2)}`;
   };
   
   const openOrderModal = () => {
@@ -202,7 +222,11 @@ const ProductDetail = () => {
                         <div className="flex items-center border rounded-md">
                           <button 
                             type="button"
-                            onClick={() => setFormData(prev => ({...prev, orderQuantity: Math.max(1, prev.orderQuantity - 1)}))}
+                            onClick={() => {
+                              const newQuantity = Math.max(1, formData.orderQuantity - 1);
+                              setFormData(prev => ({...prev, orderQuantity: newQuantity}));
+                              setTotalPrice(calculateTotalPrice(newQuantity));
+                            }}
                             className="px-3 py-1 text-lg border-r hover:bg-muted transition"
                             disabled={formData.orderQuantity <= 1}
                           >
@@ -211,7 +235,11 @@ const ProductDetail = () => {
                           <span className="px-4 py-1 flex-1 text-center">{formData.orderQuantity}</span>
                           <button 
                             type="button"
-                            onClick={() => setFormData(prev => ({...prev, orderQuantity: prev.orderQuantity + 1}))}
+                            onClick={() => {
+                              const newQuantity = formData.orderQuantity + 1;
+                              setFormData(prev => ({...prev, orderQuantity: newQuantity}));
+                              setTotalPrice(calculateTotalPrice(newQuantity));
+                            }}
                             className="px-3 py-1 text-lg border-l hover:bg-muted transition"
                           >
                             +
@@ -243,8 +271,12 @@ const ProductDetail = () => {
                         <span>{product.price}</span>
                       </div>
                       <div className="flex justify-between items-center mt-2">
+                        <span className="font-medium">Quantity:</span>
+                        <span>{formData.orderQuantity}</span>
+                      </div>
+                      <div className="flex justify-between items-center mt-2">
                         <span className="font-medium">Total:</span>
-                        <span className="text-lg font-bold">{product.price}</span>
+                        <span className="text-lg font-bold">{totalPrice}</span>
                       </div>
                     </div>
                     
