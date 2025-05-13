@@ -46,7 +46,9 @@ const ProductDetail = () => {
     }, 500); 
   }, [id]);
   
-  // Update total price when product or quantity changes
+  /**
+   * Update total price when product or quantity changes
+   */
   useEffect(() => {
     if (product) {
       setTotalPrice(calculateTotalPrice(formData.orderQuantity));
@@ -67,20 +69,28 @@ const ProductDetail = () => {
   
   const handleOrderSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would handle the order submission
+    /**
+     * Here you would handle the order submission
+     */
     console.log("Order submitted:", { ...formData, product: product?.name });
     alert("Order placed successfully!");
     setIsModalOpen(false);
   };
   
-  // Calculate total price based on quantity
+  /**
+   * Calculate total price based on quantity
+   */
   const calculateTotalPrice = (qty: number) => {
     if (!product) return "";
-    // Extract the numeric value from the price string (assuming format like "$29.99")
+    /**
+     * Extract the numeric value from the price string (assuming format like "$29.99")
+     */
     const priceValue = parseFloat(product.price.replace(/[^0-9.]/g, ''));
     const total = priceValue * qty;
     
-    // Format the total with the same currency symbol as the original price
+    /**
+     * Format the total with the same currency symbol as the original price
+     */
     const currencySymbol = product.price.match(/[^0-9.]/g)?.[0] || "$";
     return `${currencySymbol}${total.toFixed(2)}`;
   };
