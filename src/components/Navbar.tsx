@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
@@ -6,15 +5,24 @@ import { Button } from "@/components/ui/button";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Scroll down: hide navbar, scroll up: show navbar
+      if (window.scrollY > lastScrollY && window.scrollY > 10) {
+        setShowNavbar(false); // Scrolling down
+      } else {
+        setShowNavbar(true); // Scrolling up
+      }
+      setLastScrollY(window.scrollY);
       setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <header
@@ -22,7 +30,7 @@ export function Navbar() {
         isScrolled
           ? "py-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm"
           : "py-4 bg-transparent"
-      }`}
+      } ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div className="container flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
