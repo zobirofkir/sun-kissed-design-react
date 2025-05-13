@@ -27,7 +27,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+    <section className="relative pt-32 pb-16 flex md:pt-40 md:pb-24 overflow-hidden h-screen ">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 dark:bg-primary/20 rounded-full blur-3xl" />
         <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-secondary/20 rounded-full blur-3xl" />
