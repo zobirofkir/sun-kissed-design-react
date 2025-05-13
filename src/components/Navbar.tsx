@@ -31,25 +31,25 @@ export function Navbar() {
 
         <nav className="hidden md:flex items-center gap-8">
           <a
-            href="#features"
+            href="/#features"
             className="text-foreground/80 hover:text-foreground transition-colors"
           >
             Features
           </a>
           <a
-            href="#products"
+            href="/#products"
             className="text-foreground/80 hover:text-foreground transition-colors"
           >
             Products
           </a>
           <a
-            href="#testimonials"
+            href="/#testimonials"
             className="text-foreground/80 hover:text-foreground transition-colors"
           >
             Testimonials
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="text-foreground/80 hover:text-foreground transition-colors"
           >
             Contact
