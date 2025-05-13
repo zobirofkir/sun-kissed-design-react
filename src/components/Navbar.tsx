@@ -25,7 +25,7 @@ export function Navbar() {
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <span className="font-bold text-2xl text-gradient">Solaire</span>
         </a>
 
