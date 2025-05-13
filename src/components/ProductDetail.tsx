@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
-import { products } from "@/data/products";
+import { products } from "@/data/products-data";
 
 const ProductDetail = () => {
   const { id } = useParams();

@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { products } from "@/data/products";
+import { products } from "@/data/products-data";
 
 export function Products() {
   const [activeIndex, setActiveIndex] = useState(0);
