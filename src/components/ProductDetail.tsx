@@ -129,9 +129,6 @@ const ProductDetail = () => {
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button className="flex-1" size="lg">
-                  Add to Cart
-                </Button>
-                <Button className="flex-1" size="lg" variant="outline">
                   Buy Now
                 </Button>
               </div>
