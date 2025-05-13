@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
+
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isDarkMode, setIsDarkMode] = useState(false);
 
