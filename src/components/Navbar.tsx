@@ -58,7 +58,9 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button className="hidden md:inline-flex">Shop Now</Button>
+          <a href="/products">
+            <Button className="hidden md:inline-flex">Shop Now</Button>
+          </a>
           <Button
             variant="ghost"
             size="icon"
