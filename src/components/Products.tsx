@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -16,35 +15,35 @@ const products = [
     description: "Everyday face sunscreen with antioxidants",
     price: "$24.99",
     badge: "Best Seller",
-    emoji: "🧴",
+    imageUrl: "https://santepara.ma/wp-content/uploads/2023/08/Creme-Spf50-50ml-3282779402781-avene.jpg",
   },
   {
     name: "Sport Shield SPF 70",
     description: "Water-resistant formula for active lifestyles",
     price: "$29.99",
     badge: "New",
-    emoji: "🏊‍♂️",
+    imageUrl: "https://dermalliances.com/cdn/shop/files/Shooting_1.jpg?v=1717882948&width=1445",
   },
   {
     name: "Sensitive Skin SPF 30",
     description: "Fragrance-free formula for sensitive skin",
     price: "$22.99",
     badge: "",
-    emoji: "👶",
+    imageUrl: "https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/28/112895/1.jpg?0425",
   },
   {
     name: "Hydrating SPF 40",
     description: "Moisturizing sunscreen with hyaluronic acid",
     price: "$27.99",
     badge: "",
-    emoji: "💧",
+    imageUrl: "https://www.everythingbio.ma/wp-content/uploads/2024/02/ecran-solaire.jpg",
   },
   {
     name: "Tinted SPF 35",
     description: "Light coverage with mineral protection",
     price: "$26.99",
     badge: "Popular",
-    emoji: "🎨",
+    imageUrl: "https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/62/667685/1.jpg?6325",
   },
 ];
 
@@ -123,7 +122,11 @@ function ProductCard({ product }: { product: typeof products[number] }) {
   return (
     <Card className="overflow-hidden h-full transition-transform hover:scale-[1.02] bg-card">
       <div className="relative aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-        <span className="text-6xl">{product.emoji}</span>
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          className="w-full h-full object-cover"
+        />
         {product.badge && (
           <span className="absolute top-4 right-4 bg-secondary text-secondary-foreground text-xs font-semibold px-2 py-1 rounded-full">
             {product.badge}
