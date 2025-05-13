@@ -14,10 +14,6 @@ export function Footer() {
               Protecting your skin with advanced formulas and natural ingredients,
               because your skin deserves the best care today and every day.
             </p>
-            <div className="flex items-center gap-2">
-              <ThemeToggle />
-              <span className="text-sm text-foreground/70">Switch Theme</span>
-            </div>
           </div>
 
           <div>
