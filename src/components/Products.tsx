@@ -11,6 +11,7 @@ import {
 
 const products = [
   {
+    id: 1,
     name: "Daily Defense SPF 50",
     description: "Everyday face sunscreen with antioxidants",
     price: "$24.99",
@@ -18,6 +19,7 @@ const products = [
     imageUrl: "https://santepara.ma/wp-content/uploads/2023/08/Creme-Spf50-50ml-3282779402781-avene.jpg",
   },
   {
+    id: 2,
     name: "Sport Shield SPF 70",
     description: "Water-resistant formula for active lifestyles",
     price: "$29.99",
@@ -25,6 +27,7 @@ const products = [
     imageUrl: "https://dermalliances.com/cdn/shop/files/Shooting_1.jpg?v=1717882948&width=1445",
   },
   {
+    id: 3,
     name: "Sensitive Skin SPF 30",
     description: "Fragrance-free formula for sensitive skin",
     price: "$22.99",
@@ -32,6 +35,7 @@ const products = [
     imageUrl: "https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/28/112895/1.jpg?0425",
   },
   {
+    id: 4,
     name: "Hydrating SPF 40",
     description: "Moisturizing sunscreen with hyaluronic acid",
     price: "$27.99",
@@ -39,6 +43,7 @@ const products = [
     imageUrl: "https://www.everythingbio.ma/wp-content/uploads/2024/02/ecran-solaire.jpg",
   },
   {
+    id: 5,
     name: "Tinted SPF 35",
     description: "Light coverage with mineral protection",
     price: "$26.99",
@@ -143,7 +148,11 @@ function ProductCard({ product }: { product: typeof products[number] }) {
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">Add to Cart</Button>
+      <a href={`/product/${product.id}`}>
+        <Button className="w-full">
+            Buy
+        </Button>
+      </a>
       </CardFooter>
     </Card>
   );
