@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <a href="#" className="inline-block mb-4">
-              <span className="font-bold text-2xl text-gradient">SolairePro</span>
+              <span className="font-bold text-2xl text-gradient">Solaire</span>
             </a>
             <p className="text-foreground/70 max-w-md mb-6">
               Protecting your skin with advanced formulas and natural ingredients,
@@ -59,7 +59,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="text-foreground/70">
                 <span className="font-semibold text-foreground">Email:</span>{" "}
-                info@solairepro.com
+                info@solaire.com
               </li>
               <li className="text-foreground/70">
                 <span className="font-semibold text-foreground">Phone:</span>{" "}
@@ -74,7 +74,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border/40 mt-12 pt-8 text-center text-sm text-foreground/60">
-          <p>© 2025 SolairePro. All rights reserved.</p>
+          <p>© 2025 Solaire. All rights reserved.</p>
         </div>
       </div>
     </footer>
