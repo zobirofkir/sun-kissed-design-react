@@ -141,27 +141,6 @@ const ProductDetail = () => {
               <p className="text-2xl font-bold">{product.price}</p>
               <p className="text-foreground/70">{product.description}</p>
 
-              {/* Quantity Selector */}
-              <div className="flex items-center space-x-4 py-4">
-                <span className="font-medium">Quantity:</span>
-                <div className="flex items-center border rounded-md">
-                  <button 
-                    onClick={() => handleQuantityChange(-1)}
-                    className="px-3 py-1 text-lg border-r hover:bg-muted transition"
-                    disabled={quantity <= 1}
-                  >
-                    -
-                  </button>
-                  <span className="px-4 py-1">{quantity}</span>
-                  <button 
-                    onClick={() => handleQuantityChange(1)}
-                    className="px-3 py-1 text-lg border-l hover:bg-muted transition"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button className="flex-1" size="lg" onClick={openOrderModal}>
